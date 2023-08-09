@@ -1,38 +1,400 @@
 .App {
-  text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 1rem 0;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* header  */
+
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo {
+    font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header .container .nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* hide nav on small screens */
+
+/* This part is your existing code */
+
+/* hide nav on small screens */
+@media (max-width: 768px) {
+    .header .container .nav {
+        display: none;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav .nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+    color: var(--secondary-color);
+}
+
+.nav__item:hover {
+    color: var(--primary-color);
+}
+.separator {
+    margin: 0 10px;
+    width: 2px;
+    height: 20px;
+    background-color: #f1f1f1;
+}
+
+.subs_button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 44px;
+    color: white;
+    background-color: black;
+    border-radius: 34px;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    padding: 1rem 2rem;
+}
+.subs_button .underline {
+    color: var(--primary-color);
+}
+.underline::after {
+    margin-top: 2px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+/* hero */
+
+.hero__section {
+    width: 100%;
+    height: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    color: var(--primary-color);
+    gap: 2rem;
+    margin-top: 6rem;
+}
+
+.hero__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.hero__title {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    font-weight: bold;
+}
+.hero__title > span {
+    color: #6855fa;
+}
+.hero__text > button {
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color-color);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: clamp(1.2rem, 3vw, 1.3rem);
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    padding: 0.4rem 1.3rem;
+}
+
+.hero__text > button > svg {
+    margin-top: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+.hero__description {
+    max-width: 900px;
+    text-align: left;
+}
+.hero__description > p {
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: normal;
+}
+
+.Search__bar {
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Search__bar > input {
+    width: 91%;
+    height: 50px;
+    border-radius: 12px 0 0 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    outline: none;
+    border: none;
+    color: black;
+    padding-left: 1rem;
+}
+
+.Search__bar > button {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 9%;
+    height: 50px;
+    border-radius: 0 12px 12px 0;
+    border: 1px solid #6855fa;
+    background-color: #6855fa;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.chipButtons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    max-width: 800px;
+}
+
+.chipButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444444;
+    color: var(--primary-color-color);
+    border-radius: 13px;
+    cursor: pointer;
+    border: none;
+    padding: 0.4rem 1.5rem;
+    font-size: 5px;
+    font-weight: normal;
+    font-size: 1.1rem;
+    opacity: 0.6;
+}
+.chipButton:first-child {
+    opacity: 1;
+}
+.chipButton:hover {
+    opacity: 1;
+}
+
+.discover {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: black;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color-color);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0.4rem 1.3rem;
+    font-size: clamp(1.2rem, 3vw, 1.3rem);
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.discover > svg {
+    margin-top: 2px;
+    width: 15px;
+    height: 15px;
+}
+
+.discover:hover {
+    box-shadow: 0px 0px 1px 1px var(--primary-color);
+}
+
+/* cards */
+/* For large screens */
+.cards__section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Updated: 1fr instead of 1/2fr */
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* Media query for screens with a maximum width of 768px (small screens) */
+@media (max-width: 1000px) {
+    .cards__section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.BotCard {
+    color: white;
+    background-color: #1b1b1cbf;
+    max-width: 700px;
+    padding: 2rem;
+    height: 100%;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.BotCard:hover {
+    background-color: #1b1b1c;
+}
+@media (min-width: 768px) {
+    .BotCard {
+        align-items: center;
+        padding: 1.5rem;
+    }
+}
+
+.BotCard__id {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 17px;
+    padding: 0.5rem 0;
+}
+
+.BotCard__plan {
+    margin-left: 1rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    font-weight: bold;
+    border: 2px solid #6855fa;
+}
+
+.BotCard__heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.BotCard__heading a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+.BotCard__chains {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.ChainIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.BotCard__description {
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.BotCard__meta {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.MetaField {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.MetaField__label {
+    font-weight: bold;
+}
+
+.MetaField__value {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.BotStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.BotStatus--enabled::before {
+    margin-top: 2px;
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00;
+    border-radius: 50%;
+}
+
+.Footer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Footer__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.4rem;
 }
